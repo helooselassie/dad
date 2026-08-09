@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Worla Heloo's 70th Birthday Celebration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #fdf6e3 0%, #f5e6d3 50%, #e8d5b7 100%);
+            color: #4a3728;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(8px, 1.5vh, 20px);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            height: 100%;
+            max-height: 100vh;
+            background: #fffaf0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(139, 90, 43, 0.15);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #c9a227, #d4af37, #b8860b, #c9a227);
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            padding: clamp(10px, 2.2vh, 28px) 20px clamp(8px, 1.6vh, 18px);
+            background: linear-gradient(180deg, #fff8e7 0%, #fffaf0 100%);
+            border-bottom: 2px solid #e8d5b7;
+            flex-shrink: 0;
+        }
+
+        .header h1 {
+            font-size: clamp(1.1rem, 2.6vw, 2rem);
+            color: #8b4513;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .header .subtitle {
+            font-size: clamp(0.85rem, 1.4vw, 1.15rem);
+            color: #a0522d;
+            font-style: italic;
+            margin-bottom: clamp(8px, 1.6vh, 18px);
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: center;
+            gap: clamp(8px, 1.5vw, 24px);
+            flex-wrap: wrap;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: clamp(0.72rem, 1.1vw, 0.9rem);
+            color: #6b4423;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 5px 12px;
+            border-radius: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            white-space: nowrap;
+        }
+
+        .schedule {
+            padding: clamp(10px, 2vh, 24px) clamp(16px, 3vw, 34px);
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .schedule-title {
+            text-align: center;
+            font-size: clamp(0.85rem, 1.4vw, 1.15rem);
+            color: #8b4513;
+            margin-bottom: clamp(8px, 1.8vh, 18px);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            flex-shrink: 0;
+        }
+
+        .schedule-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: #d4af37;
+            margin: 8px auto 0;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(8px, 1.4vw, 16px);
+            flex: 1;
+            min-height: 0;
+        }
+
+        .event {
+            position: relative;
+            padding: clamp(8px, 1.6vh, 16px) clamp(10px, 1.6vw, 18px);
+            background: #fff;
+            border-radius: 12px;
+            border-left: 4px solid #d4af37;
+            box-shadow: 0 2px 10px rgba(139, 90, 43, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .event-time {
+            font-size: clamp(0.8rem, 1.3vw, 1rem);
+            font-weight: bold;
+            color: #b8860b;
+            margin-bottom: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .event-name {
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            font-weight: bold;
+            color: #6b4423;
+            margin-bottom: 4px;
+        }
+
+        .event-details-text {
+            font-size: clamp(0.68rem, 1.05vw, 0.85rem);
+            color: #8b7355;
+            line-height: 1.35;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fff8dc, #fffacd);
+            border-left-color: #b8860b;
+        }
+
+        .footer {
+            text-align: center;
+            padding: clamp(8px, 1.6vh, 18px);
+            background: #f5e6d3;
+            color: #8b7355;
+            font-style: italic;
+            font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+            border-top: 1px solid #e8d5b7;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 700px) {
+            .timeline {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 420px) {
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+            .event-details {
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>John Worla Heloo's 70th Birthday Celebration</h1>
+            <div class="subtitle">A Milestone of Joy, Wisdom &amp; Love</div>
+
+            <div class="event-details">
+                <div class="detail-item">
+                    <span class="icon">📅</span>
+                    <span>Saturday, September 19, 2026</span>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">📍</span>
+                    <span>Total Transformation (American Hair)</span>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🕐</span>
+                    <span>11:00 AM — 4:00 PM</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="schedule">
+            <div class="schedule-title">Program of Events</div>
+
+            <div class="timeline">
+                <div class="event">
+                    <div class="event-time">11:00 AM</div>
+                    <div class="event-name">Arrival</div>
+                    <div class="event-details-text">Guests arrive, enjoy welcome drinks, and sign the guest book</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-time">11:30 AM</div>
+                    <div class="event-name">Opening Ceremony</div>
+                    <div class="event-details-text">Master of Ceremonies welcomes everyone, followed by an opening prayer</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-time">11:45 AM</div>
+                    <div class="event-name">Grand Entrance</div>
+                    <div class="event-details-text">The celebrant makes a grand entrance to applause and celebration</div>
+                </div>
+
+                <div class="event highlight">
+                    <div class="event-time">12:00 PM</div>
+                    <div class="event-name">Lunch</div>
+                    <div class="event-details-text">A sumptuous feast shared with family and friends</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-time">1:15 PM</div>
+                    <div class="event-name">Video Tribute</div>
+                    <div class="event-details-text">A heartwarming slideshow celebrating 70 wonderful years</div>
+                </div>
+
+                <div class="event highlight">
+                    <div class="event-time">1:35 PM</div>
+                    <div class="event-name">Cake Cutting</div>
+                    <div class="event-details-text">The ceremonial cutting of the 70th birthday cake</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-time">1:50 PM</div>
+                    <div class="event-name">Toast to 70 Years</div>
+                    <div class="event-details-text">Raise your glasses in honor of a life well lived</div>
+                </div>
+
+                <div class="event highlight">
+                    <div class="event-time">2:00 PM</div>
+                    <div class="event-name">Dance &amp; Photos</div>
+                    <div class="event-details-text">Music, dancing, and capturing memories with loved ones</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-time">3:45 PM</div>
+                    <div class="event-name">Closing &amp; Farewell</div>
+                    <div class="event-details-text">Thank you to all guests — departure by 4:00 PM</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Here's to 70 incredible years and many more to come! 🎉
+        </div>
+    </div>
+</body>
+</html>
